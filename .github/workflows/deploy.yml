@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # 允許在 Actions 分頁手動觸發部署
+  workflow_dispatch:
 
 permissions:
   contents: read

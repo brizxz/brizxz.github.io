@@ -4,34 +4,45 @@ export interface Experience {
   organization: string;
   period: string;
   description: string;
-  type: "work" | "education";
+  type: "work" | "education" | "project";
 }
 
+// 以下依公開 repo 的主題整理。工作經歷請自行補上;學歷的科系與年份請確認後修改。
 export const experiences: Experience[] = [
   {
-    id: "exp-1",
-    role: "Frontend Engineer",
-    organization: "某科技公司",
-    period: "2023 — 至今",
+    id: "edu-ntu",
+    role: "資訊相關學系", // TODO: 換成你的正確科系
+    organization: "National Taiwan University (NTU)",
+    period: "在學中", // TODO: 換成正確就學年份
     description:
-      "負責公司核心產品的前端開發,導入 TypeScript 與測試流程,提升程式碼品質與部署穩定度。",
-    type: "work",
-  },
-  {
-    id: "exp-2",
-    role: "Junior Web Developer",
-    organization: "新創團隊",
-    period: "2021 — 2023",
-    description:
-      "從零參與產品開發,負責 RWD 介面與 API 串接,並協助建立前端開發規範。",
-    type: "work",
-  },
-  {
-    id: "edu-1",
-    role: "資訊工程學系 學士",
-    organization: "國立某大學",
-    period: "2017 — 2021",
-    description: "主修軟體工程,參與多項程式競賽與開源專案。",
+      "修習人工智慧、機器學習、系統程式、計算機網路等核心課程,並在課程專案中實作多項程式作品。",
     type: "education",
+  },
+  {
+    id: "proj-ai",
+    role: "AI / 機器學習專案",
+    organization: "課程與個人專案",
+    period: "2024",
+    description:
+      "完成台大人工智慧課程作業集、RAG agent,以及 YouBike 車輛數的機器學習預測模型。",
+    type: "project",
+  },
+  {
+    id: "proj-sys",
+    role: "系統程式與網路",
+    organization: "課程專案",
+    period: "2024",
+    description:
+      "以 C / C++ 實作系統程式(行程、執行緒、I/O)與計算機網路期末專案,深入底層運作。",
+    type: "project",
+  },
+  {
+    id: "proj-quant",
+    role: "量化交易與自動化",
+    organization: "個人實驗",
+    period: "持續進行",
+    description:
+      "研究量化交易策略回測、加密貨幣市場,並打造爬蟲與 Discord 機器人做自動化監控與通知。",
+    type: "project",
   },
 ];

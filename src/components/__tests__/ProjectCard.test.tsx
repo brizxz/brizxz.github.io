@@ -10,7 +10,10 @@ const project: Project = {
   tags: ["React", "TypeScript"],
   github: "https://github.com/yourname/demo",
   demo: "https://example.com/demo",
-  image: "https://placehold.co/600x400",
+  language: "Rust",
+  stars: 3,
+  accent: "violet",
+  emoji: "🧪",
 };
 
 describe("ProjectCard", () => {

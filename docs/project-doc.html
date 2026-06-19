@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <title>個人作品集網站 — 專案技術文件</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        box-sizing: border-box;
+      }
+      html {
+        font-family: "Noto Sans CJK TC", "Microsoft JhengHei", "PingFang TC",
+          system-ui, sans-serif;
+        font-size: 12px;
+        color: #1e293b;
+        line-height: 1.7;
+      }
+      body {
+        margin: 0;
+      }
+      h1,
+      h2,
+      h3 {
+        line-height: 1.3;
+        color: #0f172a;
+      }
+      .cover {
+        text-align: center;
+        padding: 60px 0 40px;
+        border-bottom: 3px solid transparent;
+        border-image: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4) 1;
+      }
+      .cover .badge {
+        display: inline-block;
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #2563eb;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+      .cover h1 {
+        font-size: 30px;
+        margin: 0 0 10px;
+        background: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .cover p {
+        color: #475569;
+        margin: 4px 0;
+      }
+      .meta-table {
+        margin: 28px auto 0;
+        border-collapse: collapse;
+        font-size: 11px;
+        width: 80%;
+      }
+      .meta-table td {
+        padding: 6px 12px;
+        border: 1px solid #e2e8f0;
+      }
+      .meta-table td:first-child {
+        background: #f8fafc;
+        font-weight: 600;
+        width: 30%;
+      }
+      h2 {
+        font-size: 18px;
+        margin: 30px 0 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #e2e8f0;
+      }
+      h2 .num {
+        color: #2563eb;
+        margin-right: 8px;
+      }
+      h3 {
+        font-size: 13px;
+        margin: 16px 0 6px;
+        color: #1e40af;
+      }
+      p,
+      li {
+        color: #334155;
+      }
+      code {
+        font-family: "SFMono-Regular", "Consolas", monospace;
+        background: #f1f5f9;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 11px;
+        color: #be185d;
+      }
+      pre {
+        background: #0f172a;
+        color: #e2e8f0;
+        padding: 12px 14px;
+        border-radius: 8px;
+        font-size: 10.5px;
+        line-height: 1.55;
+        overflow: hidden;
+        white-space: pre-wrap;
+      }
+      pre code {
+        background: none;
+        color: inherit;
+        padding: 0;
+      }
+      table.grid {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+        font-size: 11px;
+      }
+      table.grid th,
+      table.grid td {
+        border: 1px solid #e2e8f0;
+        padding: 7px 10px;
+        text-align: left;
+        vertical-align: top;
+      }
+      table.grid th {
+        background: #f1f5f9;
+        font-weight: 700;
+      }
+      .tag {
+        display: inline-block;
+        background: #eff6ff;
+        color: #1d4ed8;
+        border-radius: 999px;
+        padding: 2px 9px;
+        font-size: 10px;
+        font-weight: 600;
+        margin: 2px 3px 2px 0;
+      }
+      .callout {
+        border-left: 4px solid #2563eb;
+        background: #f8fafc;
+        padding: 10px 14px;
+        border-radius: 0 8px 8px 0;
+        margin: 12px 0;
+      }
+      .callout.warn {
+        border-color: #f59e0b;
+        background: #fffbeb;
+      }
+      .callout.ok {
+        border-color: #10b981;
+        background: #ecfdf5;
+      }
+      .section {
+        page-break-inside: avoid;
+      }
+      .pagebreak {
+        page-break-before: always;
+      }
+      footer {
+        margin-top: 36px;
+        padding-top: 12px;
+        border-top: 1px solid #e2e8f0;
+        font-size: 10px;
+        color: #94a3b8;
+        text-align: center;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .lead {
+        font-size: 13px;
+        color: #475569;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 封面 -->
+    <div class="cover">
+      <div class="badge">Project Technical Document</div>
+      <h1>個人履歷 + 作品集網站</h1>
+      <p>React + TypeScript · Vite · TailwindCSS · GitHub Actions CI/CD</p>
+      <p style="font-size: 12px; color: #64748b">
+        部署位置 https://brizxz.github.io/
+      </p>
+      <table class="meta-table">
+        <tr>
+          <td>專案名稱</td>
+          <td>brizxz.github.io（個人作品集網站）</td>
+        </tr>
+        <tr>
+          <td>類型</td>
+          <td>純靜態單頁應用(SPA),內建自動化測試與部署管線</td>
+        </tr>
+        <tr>
+          <td>原始碼</td>
+          <td>https://github.com/brizxz/brizxz.github.io</td>
+        </tr>
+        <tr>
+          <td>本機位置</td>
+          <td>~/projects/github_page(WSL 原生檔案系統)</td>
+        </tr>
+        <tr>
+          <td>文件版本</td>
+          <td>v1.0</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 1 -->
+    <div class="section">
+      <h2><span class="num">1.</span>專案概述</h2>
+      <p class="lead">
+        這是一個對外公開、隨時可分享的個人品牌網站,同時作為練習「現代軟體工程流程」的載體。
+        網站本身是純靜態的單頁應用,但圍繞它建立了一條完整的 CI/CD
+        管線——程式碼品質檢查、型別檢查、自動化測試與自動部署,
+        每次推送到 <code>main</code> 都會自動驗證並在一兩分鐘內上線。
+      </p>
+      <h3>核心目標</h3>
+      <ul>
+        <li>用資料驅動的方式呈現個人簡介、技能、作品集與履歷。</li>
+        <li>支援深色 / 淺色主題切換,並做到手機 / 平板 / 桌機的 RWD 響應式排版。</li>
+        <li>把工程品質「自動化」——讓 CI 當守門員,沒過檢查就不准合併。</li>
+        <li>部署零維運:合併即上線,不需手動處理伺服器或部署 token。</li>
+      </ul>
+      <h3>明確不做(避免範圍蔓延)</h3>
+      <ul>
+        <li>後端 / 資料庫:純靜態,內容以 TypeScript 設定檔管理。</li>
+        <li>使用者登入、CMS 後台:改內容直接改資料檔即可。</li>
+      </ul>
+    </div>
+
+    <!-- 2 -->
+    <div class="section">
+      <h2><span class="num">2.</span>技術選型</h2>
+      <table class="grid">
+        <tr>
+          <th>類別</th>
+          <th>選擇</th>
+          <th>理由</th>
+        </tr>
+        <tr>
+          <td>建置工具</td>
+          <td>Vite 5</td>
+          <td>啟動快、設定簡單,靜態輸出最適合 GitHub Pages。</td>
+        </tr>
+        <tr>
+          <td>框架 / 語言</td>
+          <td>React 18 + TypeScript</td>
+          <td>生態成熟;型別讓 CI 多一道有意義的關卡。</td>
+        </tr>
+        <tr>
+          <td>樣式</td>
+          <td>TailwindCSS 3</td>
+          <td>開發速度快,搭配自訂 keyframes 做進場動畫與漸層。</td>
+        </tr>
+        <tr>
+          <td>路由</td>
+          <td>React Router(HashRouter)</td>
+          <td>避開 GitHub Pages 對 SPA deep link 的 404 問題。</td>
+        </tr>
+        <tr>
+          <td>程式碼品質</td>
+          <td>ESLint + Prettier</td>
+          <td>靜態檢查 + 統一格式,避免無意義的 diff。</td>
+        </tr>
+        <tr>
+          <td>測試</td>
+          <td>Vitest + React Testing Library</td>
+          <td>與 Vite 原生整合,速度快;測元件行為而非實作細節。</td>
+        </tr>
+        <tr>
+          <td>CI/CD</td>
+          <td>GitHub Actions + deploy-pages</td>
+          <td>與 GitHub Pages 原生整合,官方 action 免自己處理 token。</td>
+        </tr>
+      </table>
+      <div class="callout">
+        <strong>為什麼用 HashRouter?</strong> GitHub Pages 是純靜態託管,沒有伺服器端
+        rewrite。直接造訪 <code>/projects</code> 會找不到檔案而回 404。HashRouter
+        把路由放在 <code>#</code> 之後(<code>/#/projects</code>),全交給前端處理,從根本避開問題。
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="section pagebreak">
+      <h2><span class="num">3.</span>專案結構</h2>
+      <pre><code>github_page/
+├── .github/workflows/
+│   ├── ci.yml              # PR 檢查:format → lint → typecheck → test → build
+│   └── deploy.yml          # push main 後建置並部署到 GitHub Pages
+├── public/
+│   ├── resume.pdf          # 可下載的 PDF 履歷
+│   └── favicon.svg
+├── src/
+│   ├── components/         # Header, Hero, ProjectCard, ThemeToggle, Reveal
+│   │   └── __tests__/      # 元件測試
+│   ├── pages/              # Home, Projects, Resume
+│   ├── data/               # profile.ts / projects.ts / experience.ts(內容)
+│   ├── hooks/              # useTheme, useScrollReveal
+│   ├── App.tsx             # HashRouter + 路由骨架
+│   ├── main.tsx
+│   └── index.css           # Tailwind + 自訂樣式
+├── vite.config.ts          # base: "/"(部署到 username.github.io)
+├── tailwind.config.js      # darkMode: "class" + 動畫 keyframes
+├── vitest.config.ts        # jsdom 測試環境
+└── package.json</code></pre>
+      <h3>資料與畫面分離</h3>
+      <p>
+        所有會變動的內容都抽到 <code>src/data/</code>:<code>profile.ts</code>(姓名、簡介、技能、社群)、
+        <code>projects.ts</code>(作品集,含語言、stars、漸層封面色)、
+        <code>experience.ts</code>(學歷與專案時間軸)。改內容不需要動畫面邏輯,也方便寫測試。
+      </p>
+    </div>
+
+    <!-- 4 -->
+    <div class="section">
+      <h2><span class="num">4.</span>網站功能</h2>
+      <table class="grid">
+        <tr>
+          <th>區塊</th>
+          <th>說明</th>
+        </tr>
+        <tr>
+          <td>Hero 首頁</td>
+          <td>
+            漸層標題、狀態徽章、CTA(下載履歷 / 看作品)、社群連結,搭配光暈浮動與淡入進場動畫。
+          </td>
+        </tr>
+        <tr>
+          <td>關於我 / 技能</td>
+          <td>自我介紹與技能標籤(hover 變色),捲入畫面時淡入。</td>
+        </tr>
+        <tr>
+          <td>經歷時間軸</td>
+          <td>以學歷 / 專案分類的垂直時間軸,漸層節點。</td>
+        </tr>
+        <tr>
+          <td>作品集</td>
+          <td>
+            專案卡片:漸層封面 + emoji、語言標籤、stars、技術標籤、GitHub 連結,hover 浮起。
+          </td>
+        </tr>
+        <tr>
+          <td>履歷頁</td>
+          <td>結構化的網頁版履歷(簡介 / 學歷 / 專案 / 技能),並提供 PDF 下載。</td>
+        </tr>
+        <tr>
+          <td>主題切換</td>
+          <td>
+            深色 / 淺色,記憶於 <code>localStorage</code>,首次跟隨系統偏好。
+          </td>
+        </tr>
+      </table>
+      <div class="callout ok">
+        <strong>無障礙與動效:</strong> 互動元素皆有 <code>aria-label</code>;並透過
+        <code>prefers-reduced-motion</code> 在使用者關閉動畫偏好時停用所有動效。
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="section">
+      <h2><span class="num">5.</span>CI/CD 管線</h2>
+      <h3>ci.yml — Pull Request 守門員</h3>
+      <p>觸發於對 <code>main</code> 的 PR,依「快速失敗」原則由快到慢排列:</p>
+      <pre><code>format:check → lint → typecheck → test → build</code></pre>
+      <p>任何一步失敗就擋下合併,確保進入 <code>main</code> 的程式碼都通過驗證。</p>
+      <h3>deploy.yml — 自動部署</h3>
+      <p>
+        觸發於 push 到 <code>main</code>(也支援手動 <code>workflow_dispatch</code>)。
+        分成 build 與 deploy 兩個 job:建置出 <code>dist/</code> → 上傳成 Pages artifact →
+        以官方 <code>actions/deploy-pages</code> 發布。設定了 <code>concurrency</code> 避免多個部署互相覆蓋。
+      </p>
+      <table class="grid">
+        <tr>
+          <th>關卡</th>
+          <th>工具</th>
+          <th>通過標準</th>
+        </tr>
+        <tr><td>格式</td><td>Prettier</td><td>無格式差異</td></tr>
+        <tr><td>程式碼品質</td><td>ESLint</td><td>0 error</td></tr>
+        <tr><td>型別</td><td>tsc</td><td>0 type error</td></tr>
+        <tr><td>單元 / 元件</td><td>Vitest</td><td>全綠(目前 9 個測試)</td></tr>
+        <tr><td>建置</td><td>Vite</td><td>成功產出 dist</td></tr>
+        <tr><td>部署</td><td>deploy-pages</td><td>網站可正常存取</td></tr>
+      </table>
+    </div>
+
+    <!-- 6 -->
+    <div class="section pagebreak">
+      <h2><span class="num">6.</span>GitHub Pages 部署原理</h2>
+      <h3>base 路徑</h3>
+      <p>
+        本站部署到使用者主頁 repo <code>brizxz.github.io</code>,網址在根目錄,因此
+        <code>vite.config.ts</code> 的 <code>base</code> 設為 <code>"/"</code>。
+        若改部署到一般 repo(<code>username.github.io/repo/</code>),必須改成
+        <code>"/repo/"</code>,否則 JS / CSS 會 404、整頁空白。
+      </p>
+      <div class="callout warn">
+        <strong>實戰踩雷:Source 設定。</strong> 部署初期網站一片空白,原因是 GitHub Pages 的
+        <em>Source</em> 仍是「Deploy from a branch」,它直接上架 repo 根目錄的原始
+        <code>index.html</code>(指向 <code>/src/main.tsx</code> 原始碼,瀏覽器無法執行)。
+        解法:到 <strong>Settings → Pages → Source</strong> 改成 <strong>GitHub Actions</strong>,
+        並重新觸發一次部署,改由 <code>deploy.yml</code> 上架建置後的成品。
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="section">
+      <h2><span class="num">7.</span>本機開發</h2>
+      <pre><code>npm install        # 安裝依賴
+npm run dev        # 開發伺服器 http://localhost:5173
+npm run build      # 型別檢查 + 建置到 dist/
+npm run test       # 跑單元 / 元件測試
+npm run lint       # ESLint
+npm run format     # Prettier 自動格式化</code></pre>
+      <div class="callout warn">
+        <strong>WSL 環境提醒:</strong> 在 Windows 掛載點 <code>/mnt/c</code> 下安裝
+        <code>node_modules</code> 時,npm 解壓大型原生 binary(esbuild、rollup 等)會被截斷損毀,
+        導致 build 失敗。解法是把整個專案放在 WSL 原生路徑(本專案位於
+        <code>~/projects/github_page</code>),安裝與建置就完全正常。
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="section">
+      <h2><span class="num">8.</span>後續可擴充</h2>
+      <ul>
+        <li>把佔位 / 待確認的個人資訊(真實姓名、學歷年份、LinkedIn)補上。</li>
+        <li>放上真正的 <code>public/resume.pdf</code>。</li>
+        <li>加入 Playwright E2E 測試與 Lighthouse CI(效能 / 無障礙自動關卡)。</li>
+        <li>補 Open Graph 預覽圖,讓社群分享有縮圖。</li>
+        <li>在 GitHub 設定 <code>main</code> 分支保護,要求 CI 通過才能合併。</li>
+      </ul>
+      <h3>技術標籤總覽</h3>
+      <div>
+        <span class="tag">React 18</span><span class="tag">TypeScript</span
+        ><span class="tag">Vite</span><span class="tag">TailwindCSS</span
+        ><span class="tag">React Router</span><span class="tag">Vitest</span
+        ><span class="tag">ESLint</span><span class="tag">Prettier</span
+        ><span class="tag">GitHub Actions</span
+        ><span class="tag">GitHub Pages</span>
+      </div>
+    </div>
+
+    <footer>
+      個人作品集網站 — 專案技術文件 · 由原始碼與部署設定整理而成 ·
+      https://brizxz.github.io/
+    </footer>
+  </body>
+</html>

@@ -8,43 +8,45 @@ export function Resume() {
   const projectExp = experiences.filter((e) => e.type === "project");
 
   return (
-    <section className="mx-auto max-w-3xl animate-fade-up px-4 py-14">
-      <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-6 dark:border-slate-800">
+    <section className="mx-auto max-w-3xl animate-fade-up px-6 py-20">
+      {/* 抬頭 */}
+      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-stone-200 pb-6 dark:border-stone-800">
         <div>
-          <h1 className="text-4xl font-extrabold tracking-tight">
+          <h1 className="font-display text-4xl font-normal tracking-tight">
             {profile.name}
           </h1>
-          <p className="mt-1 text-slate-600 dark:text-slate-300">
+          <p className="mt-2 font-mono text-xs uppercase tracking-wider text-stone-500">
             {profile.title} · {profile.location}
           </p>
-          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-500 dark:text-slate-400">
-            <a
-              href={`mailto:${profile.email}`}
-              className="hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              {profile.email}
-            </a>
-            <a
-              href={profile.social.github}
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              {profile.social.github.replace("https://", "")}
-            </a>
-          </div>
         </div>
         <a
           href="/resume.pdf"
           download
-          className="rounded-xl bg-gradient-to-r from-blue-600 to-violet-600 px-5 py-2.5 font-medium text-white shadow-lg shadow-blue-600/20 transition-transform hover:-translate-y-0.5"
+          className="link-underline font-mono text-sm"
         >
-          下載 PDF
+          下載 PDF ↓
+        </a>
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-x-6 gap-y-1 font-mono text-xs text-stone-500">
+        <a
+          href={`mailto:${profile.email}`}
+          className="link-underline hover:text-stone-900 dark:hover:text-stone-100"
+        >
+          {profile.email}
+        </a>
+        <a
+          href={profile.social.github}
+          target="_blank"
+          rel="noreferrer"
+          className="link-underline hover:text-stone-900 dark:hover:text-stone-100"
+        >
+          {profile.social.github.replace("https://", "")}
         </a>
       </div>
 
       <ResumeSection title="簡介">
-        <p className="leading-relaxed text-slate-600 dark:text-slate-300">
+        <p className="leading-relaxed text-stone-700 dark:text-stone-300">
           {profile.about}
         </p>
       </ResumeSection>
@@ -70,14 +72,9 @@ export function Resume() {
       </ResumeSection>
 
       <ResumeSection title="技能">
-        <ul className="flex flex-wrap gap-2">
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-stone-600 dark:text-stone-400">
           {profile.skills.map((skill) => (
-            <li
-              key={skill}
-              className="rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-300"
-            >
-              {skill}
-            </li>
+            <li key={skill}>{skill}</li>
           ))}
         </ul>
       </ResumeSection>
@@ -93,11 +90,9 @@ function ResumeSection({
   children: ReactNode;
 }) {
   return (
-    <div className="mb-8">
-      <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">
-        {title}
-      </h2>
-      <div className="space-y-4">{children}</div>
+    <div className="mt-12 grid gap-4 sm:grid-cols-12 sm:gap-8">
+      <h2 className="eyebrow sm:col-span-3 sm:pt-1">{title}</h2>
+      <div className="space-y-6 sm:col-span-9">{children}</div>
     </div>
   );
 }
@@ -116,18 +111,15 @@ function ResumeItem({
   return (
     <div>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h3 className="font-semibold">
-          {role}
-          <span className="font-normal text-slate-500 dark:text-slate-400">
-            {" · "}
-            {organization}
-          </span>
-        </h3>
-        <span className="text-sm text-slate-500 dark:text-slate-400">
-          {period}
-        </span>
+        <h3 className="font-display text-lg">{role}</h3>
+        <span className="font-mono text-xs text-stone-500">{period}</span>
       </div>
-      <p className="mt-1 text-slate-600 dark:text-slate-300">{description}</p>
+      <div className="mt-0.5 font-mono text-xs uppercase tracking-wider text-stone-500">
+        {organization}
+      </div>
+      <p className="mt-2 leading-relaxed text-stone-600 dark:text-stone-400">
+        {description}
+      </p>
     </div>
   );
 }

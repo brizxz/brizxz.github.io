@@ -5,42 +5,33 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          "Inter",
-          "Noto Sans TC",
-          "system-ui",
-          "-apple-system",
-          "sans-serif",
-        ],
+        display: ["Fraunces", "Noto Serif TC", "Georgia", "serif"],
+        sans: ["Inter", "Noto Sans TC", "system-ui", "sans-serif"],
+        mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
+      },
+      colors: {
+        // 暖色調的「紙感」中性色與單一強調色(鏽橘)
+        accent: {
+          DEFAULT: "#c2410c",
+          dark: "#ea7c4a",
+        },
+      },
+      letterSpacing: {
+        widest2: "0.22em",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "0%": { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in": {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        "gradient-pan": {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
-        "bounce-slow": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(6px)" },
-        },
       },
       animation: {
-        "fade-up": "fade-up 0.6s ease-out both",
-        "fade-in": "fade-in 0.8s ease-out both",
-        float: "float 6s ease-in-out infinite",
-        "gradient-pan": "gradient-pan 6s ease infinite",
-        "bounce-slow": "bounce-slow 2s ease-in-out infinite",
+        "fade-up": "fade-up 0.7s cubic-bezier(0.16,1,0.3,1) both",
+        "fade-in": "fade-in 0.9s ease-out both",
       },
     },
   },

@@ -22,8 +22,13 @@ function App() {
           </Routes>
         </main>
 
-        <footer className="border-t border-slate-200 py-6 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
-          © {new Date().getFullYear()} {profile.name}. Built with React + Vite.
+        <footer className="mt-8 border-t border-stone-200 dark:border-stone-800">
+          <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-2 px-6 py-8 font-mono text-xs text-stone-400 dark:text-stone-600">
+            <span>
+              © {new Date().getFullYear()} {profile.name}
+            </span>
+            <span>Built with React · TypeScript · Vite</span>
+          </div>
         </footer>
       </div>
     </HashRouter>

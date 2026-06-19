@@ -4,35 +4,33 @@ import { profile } from "../data/profile";
 
 export function Projects() {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-14">
-      <div className="animate-fade-up">
-        <h1 className="text-4xl font-extrabold tracking-tight">
-          <span className="text-gradient">作品集</span>
-        </h1>
-        <p className="mt-3 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-          橫跨 AI/ML、系統程式與自動化的專案。點卡片連結看原始碼,更多收錄在我的{" "}
-          <a
-            href={profile.social.github}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium text-blue-600 hover:underline dark:text-blue-400"
-          >
-            GitHub
-          </a>
-          。
-        </p>
+    <section className="mx-auto max-w-4xl px-6 py-20">
+      <div className="animate-fade-up flex items-baseline justify-between border-b border-stone-200 pb-4 dark:border-stone-800">
+        <span className="eyebrow">Selected work</span>
+        <span className="eyebrow">{projects.length} projects</span>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <h1 className="animate-fade-up mt-8 font-display text-4xl font-normal tracking-tight sm:text-5xl">
+        作品集
+      </h1>
+      <p className="animate-fade-up mt-4 max-w-xl leading-relaxed text-stone-600 [animation-delay:0.06s] dark:text-stone-400">
+        橫跨 AI / ML、系統程式與自動化的專案。更多收錄在我的{" "}
+        <a
+          href={profile.social.github}
+          target="_blank"
+          rel="noreferrer"
+          className="link-underline text-stone-900 dark:text-stone-100"
+        >
+          GitHub
+        </a>
+        。
+      </p>
+
+      <div className="animate-fade-up mt-12 [animation-delay:0.1s]">
         {projects.map((project, i) => (
-          <div
-            key={project.id}
-            className="animate-fade-up"
-            style={{ animationDelay: `${i * 0.06}s` }}
-          >
-            <ProjectCard project={project} />
-          </div>
+          <ProjectCard key={project.id} project={project} index={i} />
         ))}
+        <div className="border-t border-stone-200 dark:border-stone-800" />
       </div>
     </section>
   );

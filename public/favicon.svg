@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#2563eb" />
+  <rect width="64" height="64" rx="12" fill="#1c1917" />
   <text
-    x="50%"
-    y="50%"
-    dy=".35em"
+    x="30"
+    y="45"
     text-anchor="middle"
-    font-family="system-ui, sans-serif"
-    font-size="34"
-    font-weight="700"
-    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="40"
+    font-style="italic"
+    fill="#fafaf9"
   >
-    P
+    b
   </text>
+  <circle cx="47" cy="43" r="4" fill="#c2410c" />
 </svg>

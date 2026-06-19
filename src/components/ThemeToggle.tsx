@@ -12,9 +12,9 @@ export function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
       type="button"
       onClick={onToggle}
       aria-label={isDark ? "切換到淺色模式" : "切換到深色模式"}
-      className="rounded-lg border border-slate-300 p-2 text-lg transition-colors hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+      className="font-mono text-xs uppercase tracking-widest text-stone-400 transition-colors hover:text-stone-900 dark:text-stone-500 dark:hover:text-stone-100"
     >
-      <span aria-hidden="true">{isDark ? "🌙" : "☀️"}</span>
+      {isDark ? "Light" : "Dark"}
     </button>
   );
 }
